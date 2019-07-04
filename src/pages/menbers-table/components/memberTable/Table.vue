@@ -1,14 +1,14 @@
 <template>
   <div>
-    <h2>Member Page</h2>
-    <button @click="loadMembers">Load</button>
+    <h2 :class="$style.info">Member Page</h2>
+    <v-btn type="submit" color="info" @click.prevent="getAllMembers">Load</v-btn>
     <table :class="$style.table">
       <thead>
-        <member-head/>
+        <member-head />
       </thead>
       <tbody>
         <template v-for="member in members">
-          <member-row :key="member.id" :member="member"/>
+          <member-row :key="member.id" :member="member" />
         </template>
       </tbody>
     </table>
@@ -16,29 +16,30 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue, { PropOptions } from "vue";
 import MemberHead from "./Head.vue";
 import MemberRow from "./Row.vue";
 import { Member } from "../../model/member";
-import { getAllMembers } from "../../api/memberAPI";
+import { getAllMembers } from "../../../../rest-api/api/memberAPI";
 
 export default Vue.extend({
   name: "MemberTable",
   components: { MemberHead, MemberRow },
-  data: () => ({
-    members: [] as Member[]
-  }),
-  methods: {
-    loadMembers: function() {
-      getAllMembers("lemoncode").then(members => {
-        this.members = members;
-      });
-    }
+  props: {
+    members: {
+      required: true
+    } as PropOptions<Member[]>,
+    getAllMembers: {
+      required: true
+    } as PropOptions<() => void>
   }
 });
 </script>
 
-+ <style module>
+<style module>
+.info {
+  text-align: center;
+}
 .table {
   border-collapse: collapse;
   width: 100%;

@@ -1,4 +1,4 @@
-import { Member, createDefaultMember } from "../model/member";
+import { Member, createDefaultMember } from "../../pages/menbers-table/model/member";
 
 const checkStatus = (response: Response): Promise<Response> => {
   if (response.status >= 200 && response.status < 300) {
