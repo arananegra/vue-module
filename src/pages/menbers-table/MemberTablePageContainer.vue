@@ -8,7 +8,7 @@
 </template>
 <script lang="ts">
 import Vue, { PropOptions } from "vue";
-import { Member } from "./model/member";
+import { Member } from "../../model/member";
 import MemberTablePage from "./MemberTablePage.vue";
 import { getAllMembers } from "../../rest-api/api/memberAPI";
 

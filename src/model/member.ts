@@ -4,7 +4,7 @@ export interface Member {
   avatar_url: string;
 }
 
-export const createDefaultMember = () => ({
+export const createDefaultMember = (): Member => ({
   id: -1,
   login: "",
   avatar_url: ""

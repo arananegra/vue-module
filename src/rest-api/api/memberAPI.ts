@@ -1,17 +1,5 @@
-import { Member, createDefaultMember } from "../../pages/menbers-table/model/member";
-
-const checkStatus = (response: Response): Promise<Response> => {
-  if (response.status >= 200 && response.status < 300) {
-    return Promise.resolve(response);
-  } else {
-    let error = new Error(response.statusText);
-    throw error;
-  }
-};
-
-const parseJSON = (response: Response) => {
-  return response.json();
-};
+import { Member, createDefaultMember } from "../../model/member";
+import { checkStatus } from "./common";
 
 const resolveMembers = (data: any): Promise<Member[]> => {
   const members = data.map(gitHubMember => {
@@ -28,10 +16,10 @@ const resolveMembers = (data: any): Promise<Member[]> => {
 };
 
 export const getAllMembers = (organizationName: string): Promise<Member[]> => {
-  const gitHubMembersUrl: string = `https://api.github.com/orgs/${organizationName}/members`;
+  const githubMembersUrl: string = `https://api.github.com/orgs/${organizationName}/members`;
 
-  return fetch(gitHubMembersUrl)
+  return fetch(githubMembersUrl)
     .then(response => checkStatus(response))
-    .then(response => parseJSON(response))
+    .then(response => response.json())
     .then(data => resolveMembers(data));
 };

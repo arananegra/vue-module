@@ -32,7 +32,7 @@
 
 <script lang="ts">
 import Vue, { PropOptions } from "vue";
-import { Member } from "../../model/member";
+import { Member } from "../../../../model/member";
 
 export default Vue.extend({
   data: () => ({
