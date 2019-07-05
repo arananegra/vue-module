@@ -1,7 +1,18 @@
 <template>
   <div>
     <h2 :class="$style.info">Member Page</h2>
-    <v-btn type="submit" color="info" @click.prevent="getAllMembers">Load</v-btn>
+    <div :class="$style.form">
+      <div :class="$style.input">
+      <v-text-field
+        label="Organization name"
+        :value="organizationName"
+        @input="(organizationName) => updateOrganizationName(organizationName)"
+      />
+      </div>
+      <div :class="$style.searchButton">
+        <v-btn type="submit" color="info" @click.prevent="getAllMembers">Load</v-btn>
+      </div>
+    </div>
     <table :class="$style.table">
       <thead>
         <member-head />
@@ -31,12 +42,29 @@ export default Vue.extend({
     } as PropOptions<Member[]>,
     getAllMembers: {
       required: true
-    } as PropOptions<() => void>
+    } as PropOptions<() => void>,
+    updateOrganizationName: {
+      required: true
+    } as PropOptions<(organizationName) => void>,
+    organizationName: {
+      required: true
+    } as PropOptions<string>
   }
 });
 </script>
 
 <style module>
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  width: 50vw;
+}
+.searchButton {
+  margin-top: 0.5rem;
+}
 .info {
   text-align: center;
 }

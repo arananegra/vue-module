@@ -1,5 +1,10 @@
 <template>
-    <member-table-page :members="members" :get-all-members="getAllMembers"/>
+  <member-table-page
+    :members="members"
+    :get-all-members="getAllMembers"
+    :update-organization-name="updateOrganizationName"
+    :organization-name="organizationName"
+  />
 </template>
 <script lang="ts">
 import Vue, { PropOptions } from "vue";
@@ -13,13 +18,17 @@ export default Vue.extend({
     MemberTablePage
   },
   data: () => ({
-    members: [] as Member[]
+    members: [] as Member[],
+    organizationName: ""
   }),
   methods: {
     getAllMembers: function() {
-      getAllMembers("lemoncode").then(members => {
+      getAllMembers(this.organizationName).then(members => {
         this.members = members;
       });
+    },
+    updateOrganizationName(organizationName: string) {
+      this.organizationName = organizationName;
     }
   }
 });
