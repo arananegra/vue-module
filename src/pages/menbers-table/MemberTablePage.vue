@@ -8,8 +8,8 @@
 </template>
 <script lang="ts">
 import Vue, { PropOptions } from "vue";
-import { Member } from "../../model/member";
-import MemberTable from "./Table.vue";
+import { Member } from "./model/member";
+import MemberTable from "./components/memberTable/Table.vue";
 export default Vue.extend({
   name: "MemberTablePage",
   components: {

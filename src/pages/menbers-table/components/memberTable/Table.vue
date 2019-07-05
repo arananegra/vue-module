@@ -26,13 +26,10 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropOptions } from "vue";
-import MemberHead from "./Head.vue";
-import MemberRow from "./Row.vue";
-import { Member } from "../../model/member";
-import { getAllMembers } from "../../../../rest-api/api/memberAPI";
+  import Vue, { PropOptions } from "vue";
+  import { Member } from "../../model/member";
 
-export default Vue.extend({
+  export default Vue.extend({
   data: () => ({
     headers: [
       { text: "Avatar", value: "avatar", sortable: false, align: 'center' },
@@ -41,7 +38,6 @@ export default Vue.extend({
     ]
   }),
   name: "MemberTable",
-  components: { MemberHead, MemberRow },
   props: {
     members: {
       required: true

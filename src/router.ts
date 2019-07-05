@@ -1,5 +1,5 @@
 import Router, { RouteConfig } from 'vue-router';
-import { MemberTablePageContainer } from "./pages/menbers-table/components";
+import { MemberTablePageContainer } from "./pages/menbers-table";
 
 const routes: RouteConfig[] = [
     { path: '/', redirect: '/members-page' },
