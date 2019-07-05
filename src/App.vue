@@ -2,7 +2,7 @@
   <v-app>
     <v-content>
       <v-container>
-        <keep-alive>
+        <keep-alive include="MemberTablePageContainer">
           <router-view />
         </keep-alive>
       </v-container>

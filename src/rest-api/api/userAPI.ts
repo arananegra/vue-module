@@ -12,8 +12,8 @@ const resolveUser = (data: any): User => {
   return user;
 };
 
-export const getUser = (memberName: string): Promise<User> => {
-  const githubUserUrl: string = `https://api.github.com/users/${memberName}`;
+export const getUser = (username: string): Promise<User> => {
+  const githubUserUrl: string = `https://api.github.com/users/${username}`;
 
   return fetch(githubUserUrl)
     .then(response => checkStatus(response))
