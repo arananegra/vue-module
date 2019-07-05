@@ -1,13 +1,17 @@
 <template>
-  <h1>{{this.user.url}}</h1>
+  <member-info-page :user="this.user"/>
 </template>
 <script lang="ts">
 import Vue, { PropOptions } from "vue";
 import { getUser } from "../../rest-api/api/userAPI";
 import { createDefaultUser } from "../../model/user";
+import MemberInfoPage from "./MemberInfoPage.vue";
 
 export default Vue.extend({
   name: "MemberInfoPageContainer",
+  components: {
+    MemberInfoPage
+  },
   data: () => ({
     user: createDefaultUser()
   }),
