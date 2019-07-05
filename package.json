@@ -42,7 +42,6 @@
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
-    "lc-form-validation": "^2.0.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.6",
     "vuetify": "^1.5.16"

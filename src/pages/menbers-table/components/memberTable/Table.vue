@@ -20,21 +20,27 @@
         </td>
         <td :class="$style.column">{{ members.item.id }}</td>
         <td :class="$style.column">{{ members.item.login }}</td>
+        <td :class="$style.column">
+          <v-btn flat icon :to="`member/${members.item.id}`">
+            <v-icon>edit</v-icon>
+          </v-btn>
+        </td>
       </template>
     </v-data-table>
   </div>
 </template>
 
 <script lang="ts">
-  import Vue, { PropOptions } from "vue";
-  import { Member } from "../../model/member";
+import Vue, { PropOptions } from "vue";
+import { Member } from "../../model/member";
 
-  export default Vue.extend({
+export default Vue.extend({
   data: () => ({
     headers: [
-      { text: "Avatar", value: "avatar", sortable: false, align: 'center' },
-      { text: "Id", value: "id", sortable: false, align: 'center' },
-      { text: "Name", value: "name", sortable: false, align: 'center' }
+      { text: "Avatar", value: "avatar", sortable: false, align: "center" },
+      { text: "Id", value: "id", sortable: false, align: "center" },
+      { text: "Name", value: "name", sortable: false, align: "center" },
+      { text: "Extra info", value: "moreInfo", sortable: false, align: "center" }
     ]
   }),
   name: "MemberTable",

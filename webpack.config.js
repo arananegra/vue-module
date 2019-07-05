@@ -19,7 +19,7 @@ module.exports = {
   entry: {
     app: './main.ts',
     vendor: [
-      'vue', 'vue-router', 'vuetify', 'lc-form-validation',
+      'vue', 'vue-router', 'vuetify',
     ],
     vendorStyles: ['../node_modules/vuetify/dist/vuetify.min.css']
   },
