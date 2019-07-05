@@ -3,26 +3,25 @@
     <h2 :class="$style.info">Member Page</h2>
     <div :class="$style.form">
       <div :class="$style.input">
-      <v-text-field
-        label="Organization name"
-        :value="organizationName"
-        @input="(organizationName) => updateOrganizationName(organizationName)"
-      />
+        <v-text-field
+          label="Organization name"
+          :value="organizationName"
+          @input="(organizationName) => updateOrganizationName(organizationName)"
+        />
       </div>
       <div :class="$style.searchButton">
         <v-btn type="submit" color="info" @click.prevent="getAllMembers">Load</v-btn>
       </div>
     </div>
-    <table :class="$style.table">
-      <thead>
-        <member-head />
-      </thead>
-      <tbody>
-        <template v-for="member in members">
-          <member-row :key="member.id" :member="member" />
-        </template>
-      </tbody>
-    </table>
+    <v-data-table :headers="headers" :items="members" class="elevation-1">
+      <template v-slot:items="members">
+        <td :class="$style.column">
+          <img :src="members.item.avatar_url" :class="$style.image" />
+        </td>
+        <td :class="$style.column">{{ members.item.id }}</td>
+        <td :class="$style.column">{{ members.item.login }}</td>
+      </template>
+    </v-data-table>
   </div>
 </template>
 
@@ -34,6 +33,13 @@ import { Member } from "../../model/member";
 import { getAllMembers } from "../../../../rest-api/api/memberAPI";
 
 export default Vue.extend({
+  data: () => ({
+    headers: [
+      { text: "Avatar", value: "avatar", sortable: false, align: 'center' },
+      { text: "Id", value: "id", sortable: false, align: 'center' },
+      { text: "Name", value: "name", sortable: false, align: 'center' }
+    ]
+  }),
   name: "MemberTable",
   components: { MemberHead, MemberRow },
   props: {
@@ -68,12 +74,13 @@ export default Vue.extend({
 .info {
   text-align: center;
 }
-.table {
-  border-collapse: collapse;
-  width: 100%;
+
+.image {
+  max-width: 10rem;
 }
 
-.table tbody tr:nth-of-type(odd) {
-  background-color: rgba(0, 0, 0, 0.05);
+.column {
+  width: 33.33%;
+  text-align: center;
 }
 </style>
