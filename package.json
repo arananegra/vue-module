@@ -1,7 +1,7 @@
 {
-  "name": "sample-vue-js",
+  "name": "vue-module",
   "version": "1.0.0",
-  "description": "Sample working with TypeScript and Webpack",
+  "description": "Vue.js lc module",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Lemoncode/vuejs-by-sample.git"
+    "url": "git+https://github.com/arananegra/vue-module.git"
   },
   "keywords": [
     "vue.js",
@@ -17,12 +17,12 @@
     "typescript",
     "webpack"
   ],
-  "author": "Lemoncode",
+  "author": "Álvaro",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Lemoncode/vuejs-by-sample/issues"
+    "url": "https://github.com/arananegra/vue-module/issues"
   },
-  "homepage": "https://github.com/Lemoncode/vuejs-by-sample#readme",
+  "homepage": "https://github.com/arananegra/vue-module#readme",
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",

@@ -22,7 +22,7 @@
         <td :class="$style.column">{{ members.item.login }}</td>
         <td :class="$style.column">
           <v-btn flat icon :to="`member/${members.item.login}`">
-            <v-icon>edit</v-icon>
+            <v-icon>add</v-icon>
           </v-btn>
         </td>
       </template>
